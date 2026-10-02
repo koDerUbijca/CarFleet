@@ -346,7 +346,7 @@ do
 
 } while (operation != "0");
 Console.Clear();
-Console.WriteLine("Good bye");
+Console.WriteLine("ДОВІДЗЕНЯ");
 
 
 
