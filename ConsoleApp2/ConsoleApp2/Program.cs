@@ -1,4 +1,5 @@
 ﻿using ConsoleApp2;
+using System.Net.Http.Headers;
 using System.Text;
 
 Console.OutputEncoding = Encoding.UTF8;
@@ -18,6 +19,7 @@ do
     Console.WriteLine("6.Показати середній пробіг");
     Console.WriteLine("7.Знайти автомобілі за маркою");
     Console.WriteLine("8.Сортувати автомобілі");
+    Console.WriteLine("9.Додати авто з txt файла");
     Console.WriteLine("0.Вийти");
     Console.WriteLine("Ваш вибір:");
 
@@ -341,7 +343,54 @@ do
                     break;
             }
             continue;
+        case "9":
+            string[] lines = File.ReadAllLines("cars.txt");
+            foreach (string line in lines)
+            {
+                string[] data = line.Split(';');
+                switch (data[0])
+                {
+                    case "PassengerCar":
+                        PassengerCar car = new PassengerCar();
+                        car.Brand = data[1];
+                        car.Model = data[2];
+                        car.Year = int.Parse(data[3]);
+                        car.Price = int.Parse(data[4]);
+                        car.Mileage = int.Parse(data[5]);
+                        car.NumberOfDoors = int.Parse(data[6]);
+                        car.FuelType= Enum.Parse<FuelType>(data[7]);
+                        car.TrunkCapacity = int.Parse(data[8]);
+                        fleet.AddCar(car);
 
+                        break;
+                    case "Bus":
+                        Bus bus = new Bus();
+                        bus.Brand = data[1];
+                        bus.Model = data[2];
+                        bus.Year = int.Parse(data[3]);
+                        bus.Price = int.Parse(data[4]);
+                        bus.Mileage = int.Parse(data[5]);
+                        bus.PassengerCapacity = int.Parse(data[6]);
+                        bus.NumberOfSeats = int.Parse(data[7]);
+                        bus.HasAirConditioning= bool.Parse(data[8]);
+                        fleet.AddCar(bus);
+                        break;
+                    case "Truck":
+                        Truck truck = new Truck();
+                        truck.Brand = data[1];
+                        truck.Model = data[2];
+                        truck.Year = int.Parse(data[3]);
+                        truck.Price = int.Parse(data[4]);
+                        truck.Mileage = int.Parse(data[5]);
+                        truck.LoadCapacity = int.Parse(data[6]);
+                        truck.NumberOfAxles = int.Parse(data[7]);
+                        truck.HasTrailer = bool.Parse(data[8]);
+                        fleet.AddCar(truck);
+                        break;
+                }
+              
+            }
+            continue;
     }
 
 } while (operation != "0");
