@@ -37,5 +37,9 @@ namespace ConsoleApp2
         public int NumberOfDoors { get; set; }
         public FuelType FuelType { get; set; }
         public int TrunkCapacity { get; set; }
+        public override string WriteToFile()
+        {
+            return ($"{Id};{Brand};{Model};{Year};{Price};{Mileage};{NumberOfDoors};{FuelType};{TrunkCapacity}");
+        }
     }
 }

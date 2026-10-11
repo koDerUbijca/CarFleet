@@ -122,8 +122,18 @@ namespace ConsoleApp2
                 car.DisplayInfo();
             }
         }
+        public void WriteToFile()
+        {
+            using (StreamWriter fleettxt = new StreamWriter(@"C:\\Projects\\CarFleet\\ConsoleApp2\fleet.txt"))
+                foreach (Car car in cars)
+            {
+                fleettxt.WriteLine(car.WriteToFile());  
+            }
+        }
     }
 }
+
+
 //int sum = cars.Sum(x => x.Mileage);
 //int count = cars.Count;
 //sum = sum / count;
@@ -134,3 +144,19 @@ namespace ConsoleApp2
 //GetPassengerCars()
 //GetBuses()
 //GetTrucks()
+//public void CreateTxt()
+//{
+//    using (StreamWriter fleettxt = new StreamWriter(@"C:\\Projects\\CarFleet\\ConsoleApp2\fleet.txt"))
+//    {
+//        foreach (PassengerCar car in cars.OfType<PassengerCar>())
+//        {
+//            fleettxt.WriteLine($"{car.Id};{car.Brand};{car.Model};{car.Year};{car.Price};{car.Mileage};{car.NumberOfDoors};{car.FuelType};{car.TrunkCapacity}");
+//        }
+//        foreach (Bus car in cars.OfType<Bus>())
+//        {
+//            fleettxt.WriteLine($"{car.Id};{car.Brand};{car.Model};{car.Year};{car.Price};{car.Mileage};{car.PassengerCapacity};{car.NumberOfSeats};{car.HasAirConditioning}");
+//        }
+//        foreach (Truck car in cars.OfType<Truck>())
+//        {
+//            fleettxt.WriteLine($"{car.Id};{car.Brand};{car.Model};{car.Year};{car.Price};{car.Mileage};{car.LoadCapacity};{car.NumberOfAxles};{car.HasTrailer}");
+//        }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace ConsoleApp2
@@ -37,5 +38,9 @@ namespace ConsoleApp2
         public int LoadCapacity { get; set; }
         public int NumberOfAxles { get; set; }
         public bool HasTrailer { get; set; }
+        public override string WriteToFile()
+        {
+            return ($"{Id};{Brand};{Model};{Year};{Price};{Mileage};{LoadCapacity};{NumberOfAxles};{HasTrailer}");
+        }
     }
 }
