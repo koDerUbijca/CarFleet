@@ -20,6 +20,7 @@ do
     Console.WriteLine("7.Знайти автомобілі за маркою");
     Console.WriteLine("8.Сортувати автомобілі");
     Console.WriteLine("9.Додати авто з txt файла");
+    Console.WriteLine("10.Зберегти весь автопарк в ТХТ файл");
     Console.WriteLine("0.Вийти");
     Console.WriteLine("Ваш вибір:");
 
@@ -358,7 +359,7 @@ do
                         car.Price = int.Parse(data[4]);
                         car.Mileage = int.Parse(data[5]);
                         car.NumberOfDoors = int.Parse(data[6]);
-                        car.FuelType= Enum.Parse<FuelType>(data[7]);
+                        car.FuelType = Enum.Parse<FuelType>(data[7]);
                         car.TrunkCapacity = int.Parse(data[8]);
                         fleet.AddCar(car);
 
@@ -372,7 +373,7 @@ do
                         bus.Mileage = int.Parse(data[5]);
                         bus.PassengerCapacity = int.Parse(data[6]);
                         bus.NumberOfSeats = int.Parse(data[7]);
-                        bus.HasAirConditioning= bool.Parse(data[8]);
+                        bus.HasAirConditioning = bool.Parse(data[8]);
                         fleet.AddCar(bus);
                         break;
                     case "Truck":
@@ -388,9 +389,12 @@ do
                         fleet.AddCar(truck);
                         break;
                 }
-              
             }
             continue;
+
+        case "10":
+            fleet.CreateTxt();
+            break;
     }
 
 } while (operation != "0");
