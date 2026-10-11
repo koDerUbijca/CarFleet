@@ -37,6 +37,10 @@ namespace ConsoleApp2
         public int PassengerCapacity { get; set; }
         public int NumberOfSeats { get; set; }
         public bool HasAirConditioning { get; set; }
+        public override string WriteToFile()
+        {
+            return ($"{Id};{Brand};{Model};{Year};{Price};{Mileage};{PassengerCapacity};{NumberOfSeats};{HasAirConditioning}");
+
+        }
     }
-    
 }

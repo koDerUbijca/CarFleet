@@ -13,5 +13,6 @@ namespace ConsoleApp2
         public abstract int Price { get; set; }
         public abstract int Mileage { get; set; }
         public abstract void DisplayInfo();
+        public abstract string WriteToFile();
     }
 }

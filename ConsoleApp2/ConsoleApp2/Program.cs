@@ -393,7 +393,7 @@ do
             continue;
 
         case "10":
-            fleet.CreateTxt();
+            fleet.WriteToFile();
             break;
     }
 
